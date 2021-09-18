@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/authenticate.css">
-    <title>Login</title>
+    <title>Register</title>
 </head>
 
 <body>
@@ -23,11 +23,10 @@
             <div class="register">
                 <div class="content">
                     <h1>Inscription</h1>
-                    <form>
-                        <input type="text" placeholder="Nom d'utilisateur">
-                        <input type="email" placeholder="email">
-                        <input type="password" placeholder="password">
-                        <span class="remember">J'accepte les termes et conditions</span>
+                    <form action="/auth/register" method="POST">
+                        <input type="text" placeholder="Nom d'utilisateur" name="username">
+                        <input type="email" placeholder="email" name="email">
+                        <input type="password" placeholder="password" name="password">
                         <span class="clearfix"></span>
                         <button>Inscription</button>
                     </form>

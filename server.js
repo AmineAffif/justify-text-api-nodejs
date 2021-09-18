@@ -2,6 +2,7 @@
 const express = require("express")
 const dotenv = require("dotenv")
 const path = require("path")
+const { use } = require("./routes/pages")
 
 dotenv.config({ path:"./.env" })
 
@@ -10,43 +11,24 @@ dotenv.config({ path:"./.env" })
 const app = express()
 
 
-// Body Parser config
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-
-
 // Template Engine config
 const publicDirectory = path.join(__dirname, "./public")
 app.set("view engine", "hbs")
 app.use(express.static(publicDirectory))
 
 
-// Routes
+// Body Parser config
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
-app.get("/", (req, res) => {
-    res.render("index")
-})
 
-app.get("/login", (req, res) => {
-    res.render("login")
-})
-app.post("/api/login", (req, res) => {
-    
-})
+// Define Routes
+app.use("/", require("./routes/pages"))
+app.use("/auth", require("./routes/auth"))
+app.use("/api", require("./routes/api"))
 
-app.get("/register", (req, res) => {
-    res.render("register")
-})
-app.post("/api/register", (req, res) => {
-    
-})
 
-app.get("/justify", (req, res) => {
-    
-})
-app.post("/api/justify", (req, res) => {
-    
-})
+
 
 // Launch server
 app.listen(8080)
