@@ -27,21 +27,21 @@ app.get("/", (req, res) => {
     res.render("index")
 })
 
-app.get("/api/login", (req, res) => {
+app.get("/login", (req, res) => {
     res.render("login")
 })
 app.post("/api/login", (req, res) => {
     
 })
 
-app.get("/api/register", (req, res) => {
+app.get("/register", (req, res) => {
     res.render("register")
 })
 app.post("/api/register", (req, res) => {
     
 })
 
-app.get("/api/justify", (req, res) => {
+app.get("/justify", (req, res) => {
     
 })
 app.post("/api/justify", (req, res) => {
