@@ -24,7 +24,7 @@ exports.login = (req, res) => {
                         if(resBcrypt){
                             return res.status(200).json({ 
                                 "userId": userFound.id,
-                                // "token": jwtUtils.generateTokenForUser(userFound),
+                                "token": jwtUtils.generateTokenForUser(userFound),
                             })
                         }else {
                             return res.status(404).json({ "error": "invalid password" })
@@ -65,7 +65,6 @@ exports.register = (req, res) => {
                             email: email,
                             username: username,
                             password: bcryptedPassword,
-                            token: jwtUtils.generateTokenForUser(models.User),
                             daily_rate: 80000,
                         })
                             .then(function (newUser) {
